@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>一道NSObject面试题下的探索 | Gridea</title>
-<link rel="shortcut icon" href="https://haoruizhi.github.io/favicon.ico?v=1590119253064">
+<link rel="shortcut icon" href="https://haoruizhi.github.io/favicon.ico?v=1590119367516">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://haoruizhi.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="一道NSObject面试题下的探索 | Gridea - Atom Feed" href="https://haoruizhi.github.io/atom.xml">
@@ -16,7 +16,7 @@
 
 这是OC语言的转化过程，本质上Objective-C的对象、类主要是基于C\C++的结构体来实现的。
 我们可以尝试把Obj..." />
-    <meta name="keywords" content="" />
+    <meta name="keywords" content="iOS开发,NSObject" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -25,7 +25,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://haoruizhi.github.io">
-  <img class="avatar" src="https://haoruizhi.github.io/images/avatar.png?v=1590119253064" alt="">
+  <img class="avatar" src="https://haoruizhi.github.io/images/avatar.png?v=1590119367516" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -88,6 +88,14 @@
                 3 min read
               </span>
               
+                <a href="https://haoruizhi.github.io/tag/4e8H-Be5R/" class="post-tag">
+                  # iOS开发
+                </a>
+              
+                <a href="https://haoruizhi.github.io/tag/YBNF3XjaP-/" class="post-tag">
+                  # NSObject
+                </a>
+              
             </div>
             
             <div class="post-content-wrapper">
@@ -134,7 +142,8 @@ instance对象中包含：isa指针，其他成员变量，isa指针指向class�
 class对象中包含：isa指针，superclass指针，类的属性信息（@property）,实例方法（-方法），协议（protocol），成员变量（ivar），isa指针指向meta-class，superclass指针指向父类<br>
 meta-class对象需要调用runtime方法 object_getclass()方法获得，它有着和class对象相似的结构，包含：isa指针，superclass指针，类对象方法（+方法），isa指针指向基类NSObect的meta-class对象，superclass指针指向父类的meta-class对象，这里NSObect的meta-class对象的superclass指针比较特殊，指向NSObject的类对象。网上大神画了一张很经典的图，方便大家理解：<br>
 <img src="https://haoruizhi.github.io/post-images/1590119015695.webp" alt="" loading="lazy"><br>
-通过上图我们可以看出整个体系构成了一个自闭环，如果是从NSObject中继承而来的上图中的Root class就是NSObject。至此，整个实例、类对象、元类的概念也就讲清了。<br>
+通过上图我们可以看出整个体系构成了一个自闭环，如果是从NSObject中继承而来的上图中的Root class就是NSObject。<br>
+至此，整个实例、类对象、元类的概念也就讲清了。<br>
 isa指针的作用主要是查找方法，比如子类调用父类的方法，就是一层层通过isa指针去查找的，找不到会报错method undefine。今天先写到这</p>
 
               </div>
@@ -145,15 +154,6 @@ isa指针的作用主要是查找方法，比如子类调用父类的方法，�
           </article>
         </div>
 
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://haoruizhi.github.io/post/hello-gridea/">
-              <h3 class="post-title">
-                Hello Gridea
-              </h3>
-            </a>
-          </div>
         
 
         
